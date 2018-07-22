@@ -1,0 +1,49 @@
+#include<iostream.h>
+#include<conio.h>
+#include<math.h>
+#include<graphics.h>
+#include<dos.h>
+void main()
+{
+float x,y,x1,y1,x2,y2,dx,dy,pk;
+int i,gd=DETECT,gm;
+clrscr();
+
+cout<<"X1 & Y1=";
+cin>>x1>>y1;
+cout<<"X2 & Y2";
+cin>>x2>>y2;
+dx=abs(x2-x1);
+dy=abs(y2-y1);
+
+pk=2*dy-dx;
+x=x1;
+y=y1;
+
+initgraph(&gd,&gm,"c:/TURBOC3/bgi");
+putpixel(x,y,WHITE);
+
+while(x<=x2)
+{
+if(pk<0)
+{
+x=x+1;
+y=y;
+pk=pk+2*(dy);
+}
+else
+{
+x=x+1;
+y=y+1;
+pk=pk+2*(dy-dx);
+
+}
+putpixel(x,y,WHITE);
+delay(50);
+}
+
+getch();
+closegraph();
+
+
+}
